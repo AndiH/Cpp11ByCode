@@ -19,5 +19,5 @@ Feel free to create a pull request or drop some comments in the issues section. 
 * `auto.cpp` – Highlights the new auto specifier to automatically deduce the type of an object.
 * `rangeFor.cpp` – The new, handy `for` loops.
 * `beginend.cpp` — The new `begin()` and `end()` syntax.
-* `initialization.cpp` — The new universal initialization syntax with curly braces.
+* `initialization.cpp` — The new universal initialization syntax with curly braces. Also: `std::initializer_list` for initializing of custom classes.
 * `lambda.cpp` — Lambda functions.

@@ -1,5 +1,5 @@
 /**
- * @brief C++11 Example: Initialization with curly braces
+ * @brief C++11 Example: Initialization with curly braces; initializer_list
  * 
  * @author Andreas Herten <a.herten@gmail.com>
  * @date 28 Sep 2015
@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <iterator>
 #include <map>
+#include <initializer_list>
 
 struct A {
 	A(int a1, int a2) {
@@ -19,10 +20,19 @@ struct A {
 
 struct B {
 private:
-	int b1[2] {1, 2};
+	int b1[2] {1, 2};  // in-place initialization!
 public:
 	B(int b2, std::string b3) {
 		std::cout << b3 << ": " << b1[0] * b2 + b1[1] * b2 << std::endl;
+	}
+};
+
+template <class T>
+struct strangeVector {
+	std::vector<T> a;
+	strangeVector(std::initializer_list<T> list) {  // initializer_list gives the user the ability to initialize things with curly braces
+		for (typename std::initializer_list<T>::iterator l = list.begin(); l != list.end(); l++)  // shorter would be "for (auto l : list)"
+			a.push_back((*l * *l - 2) / 1.2);
 	}
 };
 
@@ -57,4 +67,9 @@ int main() {
 
 	A k {20, 21};  // classes can be initialized as well
 	B l {22, "result"};  // look into B where now the private variable b1 is defined with {}
+
+	strangeVector<int> m = {1, 2, 3, 4, 5};
+	std::vector<int> n = m.a;
+	for (std::vector<int>::iterator in = n.begin(); in != n.end(); in++)
+		std::cout << *in << std::endl;
 }
