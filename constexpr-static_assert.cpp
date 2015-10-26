@@ -1,5 +1,5 @@
 /**
- * @brief C++11 Example: constexpr
+ * @brief C++11 Example: constexpr, static_assert
  * 
  * Further reading:
  *   * http://www.stroustrup.com/C++11FAQ.html#constexpr
@@ -17,5 +17,9 @@ int main() {
 	std::cout << product(2, 3) << std::endl;  // evaluated during compile-time
 
 	std::srand(std::time(0));
-	std::cout << product(std::rand(), 5) << std::endl;  // not
+	int somevalue = product(std::rand(), 5);
+	std::cout << somevalue << std::endl;  // not
+
+	static_assert(product(2, 3) == 6, "That calculation is not right!");
+	// static_assert(product(std::rand(), 5) == somevalue, "That calculation is not right!");  // This fails during compile time
 }
