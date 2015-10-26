@@ -24,3 +24,4 @@ Feel free to create a pull request or drop some comments in the issues section. 
 * `array.cpp` — New `std::array`, a modern replacement for C-style arrays, for arrays of constant size.
 * `smartpointers.cpp` — All the new smart pointer glory of C++11; `unique_ptr`, `shared_ptr`, `weak_ptr`. Also, a quick reference to `nullptr`.
 * `classes.cpp` — New class-annotating keywords `override`, `final`, `default`, `delete`.
+* `constexpr.cpp` – Compile-time resolved constant expressions with `constexpr`.
